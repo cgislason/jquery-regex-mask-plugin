@@ -15,7 +15,8 @@
                 throw 'mask regex need to support test method';
             }
         }
-        $(this).keypress(function (event) {
+        $(this).unbind('keypress.regexMask');
+        $(this).bind('keypress.regexMask', function (event) {
             if (!event.charCode) return true;
             var part1 = this.value.substring(0,this.selectionStart);
             var part2 = this.value.substring(this.selectionEnd,this.value.length);
